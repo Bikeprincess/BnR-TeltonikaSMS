@@ -1,0 +1,21 @@
+(*PLC Call*)
+VAR
+	execute : BOOL;
+	tnSms0 : teltonikaSms;
+END_VAR
+(*Router param*)
+VAR
+	routerIP : STRING[80] := '10.254.254.3';
+	routerSmsUser : STRING[80] := 'brplc';
+	routerSmsPswd : STRING[80] := 'zkouskaBrPlc1';
+END_VAR
+(*User data*)
+VAR
+	ReqType : teltonikaReqType_e := teltonikaReqType_SendMsg;
+	EnableData : BOOL := TRUE;
+	SimPin : STRING[5] := '0000';
+	TelNumber : STRING[20] := '00420773252873';
+	Group : STRING[40];
+	MsgText : STRING[255] := 'Testovaci SMS. Prosim napis na Discord';
+	MsgId : UDINT := 1;
+END_VAR

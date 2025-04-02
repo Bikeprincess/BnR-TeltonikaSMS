@@ -16,7 +16,8 @@ FUNCTION_BLOCK teltonikaSms
 	END_VAR
 	VAR_OUTPUT
 		status : teltonikaSmsStatus_e := (0); (*State of executing. The error or Ok will be for execute state*)
-		uMsgCount : UDINT; (*UserOut - total messages*)
+		uMsgCount : INT; (*UserOut - total messages*)
+		parsedSms : ARRAY[0..9] OF teltonikaSms_t;
 	END_VAR
 	VAR
 		reExecute : R_TRIG; (*Rise edge for execute*)
@@ -37,3 +38,48 @@ FUNCTION_BLOCK teltonikaSms
 		decodedResponse : STRING[2000]; (*Decoded router response*)
 	END_VAR
 END_FUNCTION_BLOCK
+
+FUNCTION teltonikaParseSms : INT
+	VAR_INPUT
+		pIn : UDINT; (*ADR of input string received from router*)
+		sizeIn : UDINT; (*max size of input*)
+		pOut : UDINT; (*ADR for output buffer [teltonikaSms_t]*)
+		sizeOut : UDINT; (*Array size of output buffer*)
+	END_VAR
+	VAR
+		tmpMem : teltonikaSms_t;
+		i : UDINT; (*actual buffer*)
+		nextAdrRead : UDINT;
+		tmpStrParse : STRING[30];
+		tmpStrName : STRING[20];
+	END_VAR
+END_FUNCTION
+
+FUNCTION tnExtractVal : UDINT
+	VAR_INPUT
+		pIn : UDINT;
+		sizeIn : UDINT;
+		pName : UDINT;
+		sizeName : UDINT;
+		pVal : UDINT;
+		sizeVal : UDINT;
+	END_VAR
+	VAR
+		iLen : UDINT;
+		nextAddr : UDINT;
+		tmpAddr : UDINT;
+		actualChar : REFERENCE TO USINT;
+	END_VAR
+END_FUNCTION
+
+FUNCTION tnFindEndOrLf : UDINT
+	VAR_INPUT
+		pIn : UDINT;
+		sizeIn : UDINT;
+	END_VAR
+	VAR
+		i : UDINT;
+		tmpAddr : UDINT;
+		actualChar : REFERENCE TO USINT;
+	END_VAR
+END_FUNCTION

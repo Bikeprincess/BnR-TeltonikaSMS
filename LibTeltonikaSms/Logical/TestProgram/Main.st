@@ -21,5 +21,10 @@ PROGRAM _CYCLIC
 	
 	tnSms0(enable := TRUE, execute := execute);
 	
-	 
+	IF enableParse THEN
+		enableParse := FALSE;
+		parsedSmsCount := teltonikaParseSms(ADR(testSmsRead), SIZEOF(testSmsRead), ADR(parsedSms), SIZEOF(parsedSms)/SIZEOF(teltonikaSms_t));
+	END_IF;
+	
+	
 END_PROGRAM

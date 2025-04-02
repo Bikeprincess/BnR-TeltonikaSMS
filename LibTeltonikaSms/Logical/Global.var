@@ -14,8 +14,15 @@ VAR
 	ReqType : teltonikaReqType_e := teltonikaReqType_SendMsg;
 	EnableData : BOOL := TRUE;
 	SimPin : STRING[5] := '0000';
-	TelNumber : STRING[20] := '00420773252873';
+	TelNumber : STRING[20] := '00420123456789';
 	Group : STRING[40];
-	MsgText : STRING[255] := 'Testovaci SMS. Prosim napis na Discord';
+	MsgText : STRING[255] := 'Test SMS - response on another channel';
 	MsgId : UDINT := 1;
+END_VAR
+(*test var*)
+VAR
+	parsedSmsCount : INT;
+	testSmsRead : STRING[2000] := 'Index: 3$nDate: Wed Nov 6 13:32:33 2024$nSender: +420123456789$nText: Staèí?$nStatus: read$n------------------------------$nIndex: 2$nDate: Wed Nov  6 13:32:28 2024$nSender: +420123456789$nText: Blllllll$nStatus: read$n------------------------------$nIndex: 1$nDate: Wed Nov  6 13:32:19 2024$nSender: +420123456789$nText: Hou hej hou hej$nStatus: read$n------------------------------$nIndex: 0$nDate: Wed Nov  6 13:32:00 2024$nSender: +420123456789$nText: Hej hou hej hou$nStatus: read$n------------------------------';
+	parsedSms : ARRAY[0..9] OF teltonikaSms_t;
+	enableParse : BOOL;
 END_VAR

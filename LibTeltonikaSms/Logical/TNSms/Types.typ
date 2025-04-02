@@ -1,5 +1,17 @@
 
 TYPE
+	teltonikaSms_t : 	STRUCT 
+		index : USINT;
+		date : STRING[30];
+		sender : STRING[20];
+		text : STRING[255];
+		status : BOOL;
+	END_STRUCT;
+END_TYPE
+
+(*Insert your comment here.*)
+
+TYPE
 	teltonikaReqType_e : 
 		(
 		teltonikaReqType_EnMobileData,

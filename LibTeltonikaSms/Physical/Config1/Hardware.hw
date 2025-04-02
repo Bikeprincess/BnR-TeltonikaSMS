@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=6.0.2.177 FileVersion="4.9"?>
+<?AutomationStudio WorkingVersion="6.1" FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="X20BB52" Type="X20BB52" Version="1.2.0.0" />
   <Module Name="X20CP0484_1" Type="X20CP0484-1" Version="1.8.1.0">
@@ -13,8 +13,10 @@
     <Parameter ID="TimerDeviceType" Value="SWIOTIMER" />
     <Parameter ID="Cyclic1Duration" Value="10000" />
     <Parameter ID="Cyclic1Tolerance" Value="10000" />
+    <Parameter ID="Cyclic1Stack" Value="16384" />
     <Parameter ID="Cyclic2Duration" Value="20000" />
     <Parameter ID="Cyclic2Tolerance" Value="20000" />
+    <Parameter ID="Cyclic2Stack" Value="16384" />
     <Parameter ID="Cyclic3Duration" Value="50000" />
     <Parameter ID="Cyclic3Tolerance" Value="50000" />
     <Parameter ID="Cyclic4Duration" Value="100000" />
@@ -31,6 +33,8 @@
     <Parameter ID="FileDeviceName1" Value="USER" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH" />
     <Parameter ID="TimeZone" Value="145" />
+    <Parameter ID="ActivateWebServer" Value="1" />
+    <Parameter ID="ActivateSdm" Value="1" />
   </Module>
   <Module Name="X20PS9600" Type="X20PS9600" Version="1.6.2.0">
     <Connection Connector="PS" TargetModule="X20BB52" TargetConnector="PS1" />
